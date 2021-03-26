@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">BTAndroidTuan3</string>
+    <string name="btnDialog1">DIALOG 1</string>
+    <string name="btnDialog2">DIALOG 2</string>
+
+    <!-- Dialog 1 -->
+    <string name="txtDetail">Details</string>
+    <string name="txtEnterInfo">Enter your basic details</string>
+
+    <string name="hintName">Enter name</string>
+    <string name="hintPhone">Enter mobile number</string>
+    <string name="hintAddress">Enter address</string>
+
+    <string name="txtAdd">ADD</string>
+    <string name="txtCancel">CANCEL</string>
+
+
+    <!-- Dialog 2-->
+    <string name="txtTitle">New Event</string>
+    <string name="btnSave">SAVE</string>
+
+    <string name="txtEvent">Event name</string>
+    <string name="txtLocation">Location</string>
+
+    <string name="txtFrom">From</string>
+    <string name="txtTo">To</string>
+
+    <string name="chkAllDay">All-Day</string>
+    <string name="txtTimezone">Timezone</string>
 </resources>

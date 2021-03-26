@@ -7,6 +7,8 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
     Calendar calendar;
     SimpleDateFormat sdf1;
     SimpleDateFormat sdf2;
+
+    ArrayList<String> listEmail;
+    ArrayAdapter<String> adapterEmail;
+
+    ArrayList<String> listTimeZone;
+    ArrayAdapter<String> adapterTimeZone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,11 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayDialog2() {
 
-        final View dialogView = View.inflate(this,R.layout.dialog2layout,null);
-        final Dialog dialog = new Dialog(this,R.style.MyAlertDialogStyle);
+        View dialogView = View.inflate(this,R.layout.dialog2layout,null);
+        Dialog dialog = new Dialog(this,R.style.MyAlertDialogStyle);
         dialog.setContentView(dialogView);
-        //Dialog dialog=new Dialog(this);
-        //dialog.setContentView(R.layout.dialog2layout);
 
 
         Spinner spEmail=dialog.findViewById(R.id.spEmail);
@@ -106,6 +114,22 @@ public class MainActivity extends AppCompatActivity {
 
         txtToDate.setText(sdf1.format(calendar.getTime()));
         txtToTime.setText(sdf2.format(calendar.getTime()));
+
+        listEmail=new ArrayList<String>();
+        listEmail.add("tientien04.ss@gmail.com");
+        listEmail.add("truongan@gmail.com");
+        listEmail.add("thieuquan@gmail.com");
+        listEmail.add("giabinh@gmail.com");
+        adapterEmail=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_spinner_item,listEmail);
+        adapterEmail.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spEmail.setAdapter(adapterEmail);
+
+        listTimeZone=new ArrayList<String>();
+        listTimeZone.add("HaNoi Time");
+        listTimeZone.add("BangKok Time");
+        adapterTimeZone=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_spinner_item,listTimeZone);
+        adapterTimeZone.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spTimeZone.setAdapter(adapterTimeZone);
 
         View.OnClickListener listener=new View.OnClickListener() {
             @Override
