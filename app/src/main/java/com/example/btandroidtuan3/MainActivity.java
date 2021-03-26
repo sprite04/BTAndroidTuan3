@@ -56,15 +56,25 @@ public class MainActivity extends AppCompatActivity {
         Dialog dialog=new Dialog(this);
         dialog.setContentView(R.layout.dialog1layout);
 
+        TextView txtCancel=dialog.findViewById(R.id.txtCancel);
+
+        txtCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         dialog.show();
     }
 
     private void displayDialog2() {
 
-
-        Dialog dialog=new Dialog(this);
-        dialog.setContentView(R.layout.dialog2layout);
+        final View dialogView = View.inflate(this,R.layout.dialog2layout,null);
+        final Dialog dialog = new Dialog(this,R.style.MyAlertDialogStyle);
+        dialog.setContentView(dialogView);
+        //Dialog dialog=new Dialog(this);
+        //dialog.setContentView(R.layout.dialog2layout);
 
 
         Spinner spEmail=dialog.findViewById(R.id.spEmail);
