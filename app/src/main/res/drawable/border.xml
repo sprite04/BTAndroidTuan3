@@ -22,7 +22,7 @@
         android:bottom="10dp" >
     </padding>
 
-    <!-- và đây là bán kính đường tròn ở 4 góc -->
+    <!-- set radius -->
     <corners
         android:radius="5dp" >
     </corners>
